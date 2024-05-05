@@ -1,0 +1,28 @@
+<header class="header">
+  <h1>Welcome to the Cookbook!</h1>
+</header>
+
+<div id="container">
+  <div class="container1 card">
+    <form>
+      <label for="name">Name of the recipe: <input id="name" name="name" type="text"/></label>
+      <label for="description">Description of the recipe: <textarea id="description" name="description" rows="2"></textarea></label>
+      <label for="rating">Rating of recipe: (out of 5)<input id="rating" type="number" name="rating" min="0" max="5" /></label>
+      <label for="prep_time">Prep time: <input id="prep_time" type="text" name="prep_time" maxlength="10"/></label>
+      <input type="submit" value="Submit" />
+    </form>
+    <p>or</p>
+
+  </div>
+
+  <div class="container2">
+    <% @recipes.each do |recipe| %>
+      <div class="card">
+        <p class="title"><%= recipe.name %></p>
+        <p><em>Rating:</em> <%= recipe.rating %></p>
+        <p><em>Prep time:</em> <%= recipe.prep_time %></p>
+        <p class="description"><%= recipe.description %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
